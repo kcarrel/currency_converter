@@ -33,12 +33,15 @@ function ConvertForm() {
   const classes = useStyles();
 
   const [amount, setAmount] = useState(0);
-  const [native_currency, setNativeCurrency] = useState('');
-  const [foreign_currency, setForeignCurrency] = useState('');
+  const [nativeCurrency, setNativeCurrency] = useState('');
+  const [foreignCurrency, setForeignCurrency] = useState('');
 
   const convertAmount = () => {
-    
-    if(!amount || !native_currency || !foreign_currency) return
+    console.log({amount})
+    console.log({nativeCurrency})
+    console.log({foreignCurrency})
+
+    if(!amount || !nativeCurrency || !foreignCurrency) return
   }
 
 
@@ -58,29 +61,29 @@ function ConvertForm() {
               value={amount}
             />
             <FormControl fullWidth margin="normal">
-              <InputLabel id="native_currency">Native Currency</InputLabel>
+              <InputLabel id="nativeCurrency">Native Currency</InputLabel>
               <Select
                 required
                 fullWidth
-                name='native_currency'
-                labelId="native_currency"
+                name='nativeCurrency'
+                labelId="nativeCurrency"
                 type="text"
                 onChange={e => setNativeCurrency(e.target.value)}
-                value={native_currency}
+                value={nativeCurrency}
               >
-                <MenuItem >GDP</MenuItem>
+                <MenuItem value={"GDP"}>GDP</MenuItem>
               </Select>
             </FormControl>
             <FormControl fullWidth margin="normal">
-              <InputLabel id="foreign_currency">Foreign Currency</InputLabel>
+              <InputLabel id="foreignCurrency">Foreign Currency</InputLabel>
               <Select
-                name='foreign_currency'
-                labelId="foreign_currency"
+                name='foreignCurrency'
+                labelId="foreignCurrency"
                 type="text"
                 onChange={e => setForeignCurrency(e.target.value)}
-                value={foreign_currency}
+                value={foreignCurrency}
               >
-                <MenuItem >GDP</MenuItem>
+                <MenuItem value={"GDP"}>GDP</MenuItem>
               </Select>
             </FormControl>
             <Button 
