@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import ConvertForm from './components/ConvertForm'
-import { useAsync } from 'react-async';
 import './App.css';
 
 
@@ -12,7 +11,7 @@ function App() {
   const [amount, setAmount] = useState(0);
   const [nativeCurrency, setNativeCurrency] = useState('');
   const [foreignCurrency, setForeignCurrency] = useState('');
-  // const [convertedAmount, setConvertedAmount] = useState(0);
+  const [convertedAmount, setConvertedAmount] = useState(0);
   
 
   const convertAmount = async () => {
@@ -25,7 +24,18 @@ function App() {
     })  
       .then(res => (res.json())
       .then(res => {
-        console.log(res)
+        var rates = res.rates
+        for (var i in rates)  {
+          if (i === foreignCurrency) {
+            var exchangeRate = rates[i];
+            var convertAmount = amount/exchangeRate;
+            setConvertedAmount(convertAmount);
+            console.log(convertedAmount);
+          }
+        }
+      })
+      .catch(err => {
+        console.log(err);
       })
     );
 

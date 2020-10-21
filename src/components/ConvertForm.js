@@ -59,7 +59,9 @@ function ConvertForm(props) {
                 onChange={e => props.setNativeCurrency(e.target.value)}
                 value={props.nativeCurrency}
               >
-                <MenuItem value={"USD"}>USD</MenuItem>
+                {currencyAbb.map((code, index) => (
+                    <MenuItem key={`nativeCurrency ${index}`} value={code}>{code}</MenuItem>
+                ))}
               </Select>
             </FormControl>
             <FormControl fullWidth margin="normal">
@@ -71,7 +73,9 @@ function ConvertForm(props) {
                 onChange={e => props.setForeignCurrency(e.target.value)}
                 value={props.foreignCurrency}
               >
-                <MenuItem value={"USD"}>USD</MenuItem>
+                {currencyAbb.map((code, index) => (
+                    <MenuItem key={`foreignCurrency ${index}`} value={code}>{code}</MenuItem>
+                ))}
               </Select>
             </FormControl>
             <Button 
