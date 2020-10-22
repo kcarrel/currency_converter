@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import ConvertForm from './components/ConvertForm'
 import './App.css';
 
@@ -11,40 +11,34 @@ function App() {
   const [amount, setAmount] = useState(0);
   const [nativeCurrency, setNativeCurrency] = useState('');
   const [foreignCurrency, setForeignCurrency] = useState('');
+  const [rate, setRate] = useState(0);
   const [convertedAmount, setConvertedAmount] = useState(0);
-  
 
-  const convertAmount = async () => {
-    console.log({amount})
-    console.log({nativeCurrency})
-    console.log({foreignCurrency})
+
+  const getRate = e => {
+    e.preventDefault()
     const BASE_URL = `https://api.exchangeratesapi.io/latest?base=${nativeCurrency}`
     fetch(BASE_URL, {
       method: "GET",
     })  
-      .then(res => (res.json())
-      .then(res => {
-        var rates = res.rates
+      .then(res => res.json())
+      .then(json => {
+        var rates = json.rates;
         for (var i in rates)  {
-          if (i === foreignCurrency) {
-            var exchangeRate = rates[i];
-            var convertAmount = amount/exchangeRate;
-            setConvertedAmount(convertAmount);
-            console.log(convertedAmount);
+          if (i === foreignCurrency) { 
+            setRate(rates[i]); 
           }
         }
       })
       .catch(err => {
         console.log(err);
       })
-    );
-
-    // var exchangeRate = 0;
-  
-    // setConvertedAmount(amount/= exchangeRate);
-
-    if(!amount || !nativeCurrency || !foreignCurrency) return
   }
+
+  useEffect(() => {
+    var converted = amount*rate
+    setConvertedAmount(converted)
+  }, [rate])
 
 
   return (
@@ -56,7 +50,7 @@ function App() {
         setAmount={setAmount}
         setNativeCurrency={setNativeCurrency}
         setForeignCurrency={setForeignCurrency}
-        convertAmount={convertAmount}
+        getRate={getRate}
       />
     </div>
   );

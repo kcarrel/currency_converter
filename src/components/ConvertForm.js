@@ -8,7 +8,7 @@ const useStyles = makeStyles(theme => ({
   },
   paper: {
       width: 500,
-      height: 500,
+      height: 400,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -45,17 +45,17 @@ function ConvertForm(props) {
               fullWidth
               label="Amount to Convert"
               type="number"
+              variant="outlined"
               onChange={e => props.setAmount(e.target.value)}
               value={props.amount}
             />
-            <FormControl fullWidth margin="normal">
+            <FormControl required fullWidth margin="normal">
               <InputLabel id="nativeCurrency">Native Currency</InputLabel>
               <Select
-                required
-                fullWidth
+                autoWidth
                 name='nativeCurrency'
                 labelId="nativeCurrency"
-                type="text"
+                id="native-currency-select"
                 onChange={e => props.setNativeCurrency(e.target.value)}
                 value={props.nativeCurrency}
               >
@@ -64,12 +64,13 @@ function ConvertForm(props) {
                 ))}
               </Select>
             </FormControl>
-            <FormControl fullWidth margin="normal">
-              <InputLabel id="foreignCurrency">Foreign Currency</InputLabel>
+            <FormControl required fullWidth margin="normal">
+              <InputLabel id="foreignCurrency"> Foreign Currency</InputLabel>
               <Select
+                autoWidth
                 name='foreignCurrency'
                 labelId="foreignCurrency"
-                type="text"
+                id="foreign-currency-select"
                 onChange={e => props.setForeignCurrency(e.target.value)}
                 value={props.foreignCurrency}
               >
@@ -81,7 +82,7 @@ function ConvertForm(props) {
             <Button 
               fullWidth 
               margin="normal"
-              onClick={props.convertAmount} 
+              onClick={props.getRate} 
               color="primary" 
               variant="contained">
               Convert
