@@ -1,11 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import ConvertForm from './components/ConvertForm'
+import ConversionDisplay from './components/ConversionDisplay'
 import './App.css';
 
-
-// function displayConversion() {
-  
-// };
 
 function App() {
   const [amount, setAmount] = useState(0);
@@ -15,6 +12,8 @@ function App() {
   const [convertedAmount, setConvertedAmount] = useState(0);
 
 
+  // Calls the Exchange Rates API upon ConvertForm submission to retrieve
+  // exchange rates based on the native currency selected in form 
   const getRate = e => {
     e.preventDefault()
     const BASE_URL = `https://api.exchangeratesapi.io/latest?base=${nativeCurrency}`
@@ -36,9 +35,8 @@ function App() {
   }
 
   useEffect(() => {
-    var converted = amount*rate
-    setConvertedAmount(converted)
-  }, [rate])
+    setConvertedAmount(amount*rate)
+  }, [amount,rate])
 
 
   return (
@@ -51,6 +49,12 @@ function App() {
         setNativeCurrency={setNativeCurrency}
         setForeignCurrency={setForeignCurrency}
         getRate={getRate}
+      />
+      <ConversionDisplay 
+        amount={amount}
+        nativeCurrency={nativeCurrency} 
+        foreignCurrency={foreignCurrency}
+        convertedAmount={convertedAmount} 
       />
     </div>
   );

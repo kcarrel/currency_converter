@@ -36,23 +36,22 @@ function ConvertForm(props) {
   return (
     <div className={classes.root}>
       <div className="currency_form">
-        <Paper className={classes.paper}>
+        <Paper className={classes.paper} elevation={3}>
           <form>
             <TextField
               margin="normal"
               name='amount'
               required
-              fullWidth
+              fullWidth="true"
               label="Amount to Convert"
               type="number"
               variant="outlined"
               onChange={e => props.setAmount(e.target.value)}
               value={props.amount}
             />
-            <FormControl required fullWidth margin="normal">
+            <FormControl required margin="normal" fullWidth="true">
               <InputLabel id="nativeCurrency">Native Currency</InputLabel>
               <Select
-                autoWidth
                 name='nativeCurrency'
                 labelId="nativeCurrency"
                 id="native-currency-select"
@@ -64,10 +63,9 @@ function ConvertForm(props) {
                 ))}
               </Select>
             </FormControl>
-            <FormControl required fullWidth margin="normal">
+            <FormControl required margin="normal" fullWidth="true">
               <InputLabel id="foreignCurrency"> Foreign Currency</InputLabel>
               <Select
-                autoWidth
                 name='foreignCurrency'
                 labelId="foreignCurrency"
                 id="foreign-currency-select"
