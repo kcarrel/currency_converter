@@ -69,7 +69,7 @@ function ConvertForm(props) {
                 labelId="nativeCurrency"
                 transition="false" 
                 id="native-currency-select"
-                onChange={e => props.setNativeCurrency(e.target.value)}
+                onChange={e => props.setNativeCurrencyInput(e.target.value)}
                 value={props.nativeCurrency}
               >
                 {currencyAbb.map((code, index) => (
@@ -83,7 +83,7 @@ function ConvertForm(props) {
                 name='foreignCurrency'
                 labelId="foreignCurrency"
                 id="foreign-currency-select"
-                onChange={e => props.setForeignCurrency(e.target.value)}
+                onChange={e => props.setForeignCurrencyInput(e.target.value)}
                 value={props.foreignCurrency}
               >
                 {currencyAbb.map((code, index) => (

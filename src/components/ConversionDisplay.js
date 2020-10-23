@@ -37,7 +37,7 @@ function ConversionDisplay(props) {
     return(
         <div className="classes.root">
             <div className="conversion_display">
-                {props.convertedAmount !== 0 ? (
+                {props.conversionDisplay ? (
                     <Card className={classes.card} elevation={3}> 
                         <StyledCard>
                             {props.amount} {props.nativeCurrency} can be converted to {props.convertedAmount} {props.foreignCurrency}!
