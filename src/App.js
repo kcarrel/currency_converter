@@ -35,7 +35,7 @@ function App() {
   }
 
   useEffect(() => {
-    setConvertedAmount(amount*rate)
+    setConvertedAmount(Math.round((amount*rate) * 100)/100)
   }, [amount,rate])
 
 

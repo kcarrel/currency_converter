@@ -7,14 +7,14 @@
 
 .currency_form {
   position: fixed;
-  top: 40%;
+  top: 60%;
   left: 50%;
   /* bring your own prefixes */
   transform: translate(-50%, -50%);
 }
 .conversion_display {
   position: fixed;
-  top: 80%;
+  top: 20%;
   left: 50%;
   /* bring your own prefixes */
   transform: translate(-50%, -50%);

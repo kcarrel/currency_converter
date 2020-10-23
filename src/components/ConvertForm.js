@@ -56,7 +56,7 @@ function ConvertForm(props) {
     <div className={classes.root}>
       <div className="currency_form">
         <Paper className={classes.paper} elevation={3}>
-          <form>
+          <form style={{padding: '50px'}}>
             <TextField
               margin="normal"
               name='amount'
