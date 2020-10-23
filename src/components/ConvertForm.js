@@ -15,18 +15,11 @@ const useStyles = makeStyles(theme => ({
       flexDirection: 'column',
       backgroundColor: "#eee",
   },
-  button: {
-    background: 'green'
-  },
   form: {
     width: '100%',
   },
   textField: {
       backgroundColor: "#fff"
-  },
-  button: {
-      backgroundColor: "green",
-      marginLeft: 20
   }
 }));
 
@@ -40,9 +33,10 @@ const StyledButton = withStyles({
     height: 48,
     padding: '0 30px',
     boxShadow: '0',
-  },
-  label: {
-    textTransform: 'capitalize',
+    '&:hover': {
+      background: '#218961',
+      color:'#FFF'
+    }
   },
 })(Button);
 
