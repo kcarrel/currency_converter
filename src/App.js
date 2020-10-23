@@ -15,7 +15,7 @@ function App() {
   // Calls the Exchange Rates API upon ConvertForm submission to retrieve
   // exchange rates based on the native currency selected in form 
   const getRate = e => {
-    e.preventDefault()
+    e.preventDefault();
     const BASE_URL = `https://api.exchangeratesapi.io/latest?base=${nativeCurrency}`
     fetch(BASE_URL, {
       method: "GET",
@@ -38,7 +38,7 @@ function App() {
     setConvertedAmount(Math.round((amount*rate) * 100)/100)
   }, [amount,rate])
 
-
+  
   return (
     <div className="App">
       <ConvertForm 

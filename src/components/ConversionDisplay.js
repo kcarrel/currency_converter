@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from '@material-ui/core/Card';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import { CardContent } from '@material-ui/core';
 
 
@@ -21,6 +21,16 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+const StyledCard = withStyles({
+  root: {
+    padding: '50px',
+    "&:last-child": {
+        paddingTop: 50,
+        paddingBottom: 50
+    },
+  },
+})(CardContent);
+
 
 function ConversionDisplay(props) {
     const classes = useStyles();
@@ -29,15 +39,15 @@ function ConversionDisplay(props) {
             <div className="conversion_display">
                 {props.convertedAmount !== 0 ? (
                     <Card className={classes.card} elevation={3}> 
-                        <CardContent>
+                        <StyledCard>
                             {props.amount} {props.nativeCurrency} can be converted to {props.convertedAmount} {props.foreignCurrency}!
-                        </CardContent>
+                        </StyledCard>
                     </Card>
                     ) : (
                     <Card className={classes.card} elevation={3}> 
-                        <CardContent>
+                        <StyledCard>
                             Enter the amount of money you would like converted then select the native currency and foreign currency! 
-                        </CardContent>
+                        </StyledCard>
                     </Card>
                 )}       
             </div>

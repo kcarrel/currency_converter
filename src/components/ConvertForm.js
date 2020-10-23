@@ -55,18 +55,19 @@ function ConvertForm(props) {
               margin="normal"
               name='amount'
               required
-              fullWidth="true"
+              fullWidth
               label="Amount to Convert"
               type="number"
               variant="outlined"
               onChange={e => props.setAmount(e.target.value)}
               value={props.amount}
             />
-            <FormControl required margin="normal" fullWidth="true">
+            <FormControl required margin="normal" fullWidth>
               <InputLabel id="nativeCurrency">Native Currency</InputLabel>
               <Select
                 name='nativeCurrency'
                 labelId="nativeCurrency"
+                transition="false" 
                 id="native-currency-select"
                 onChange={e => props.setNativeCurrency(e.target.value)}
                 value={props.nativeCurrency}
@@ -76,7 +77,7 @@ function ConvertForm(props) {
                 ))}
               </Select>
             </FormControl>
-            <FormControl required margin="normal" fullWidth="true">
+            <FormControl transition="false" required margin="normal" fullWidth>
               <InputLabel id="foreignCurrency"> Foreign Currency</InputLabel>
               <Select
                 name='foreignCurrency'
