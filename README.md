@@ -1,7 +1,7 @@
 # Currency Converter
 Currency Converter is a web app that converts an amount of money in a native currency into a foreign currency that is rounded to 2 decimals. 
 
-![Currency Convertor Screenshot](/public/currency_convertor.png)
+![Currency Convertor Screenshot](/public/currency_converter.png)
 
 ## How to Run Locally
 - Step 1: git clone git@github.com:kcarrel/currency_converter.git
