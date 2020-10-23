@@ -1,9 +1,13 @@
-# Currency Translator 
-This is a simple web app with a form that accepts an amount to convert, a native currency to convert from and a foreign currency to convert to then displays the converted amount to the user.
+# Currency Converter
+Currency Converter is a web app that converts an amount of money in a native currency into a foreign currency that is rounded to 2 decimals. 
 
 ![Currency Convertor Screenshot](/public/currency_convertor.png)
 
-## How to Use
+## How to Run Locally
+- Step 1: git clone git@github.com:kcarrel/currency_converter.git
+- Step 2: cd into the local repository copy
+- Step 3: npm install 
+- Step 4: npm start
 
 ## Technology Used
 - React
