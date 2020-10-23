@@ -59,12 +59,13 @@ function ConvertForm(props) {
               label="Amount to Convert"
               type="number"
               variant="outlined"
+              id="amount-text-field"
               onChange={e => props.setAmount(e.target.value)}
               value={props.amount}
             />
             <FormControl required margin="normal" fullWidth>
               <InputLabel id="nativeCurrency">Native Currency</InputLabel>
-              <Select
+              <Select 
                 name='nativeCurrency'
                 labelId="nativeCurrency"
                 transition="false" 
@@ -73,7 +74,7 @@ function ConvertForm(props) {
                 value={props.nativeCurrency}
               >
                 {currencyAbb.map((code, index) => (
-                    <MenuItem key={`nativeCurrency ${index}`} value={code}>{code}</MenuItem>
+                    <MenuItem key={`nativeCurrency ${index}`} id={`nativeCurrency ${code}`}value={code}>{code}</MenuItem>
                 ))}
               </Select>
             </FormControl>
@@ -87,7 +88,7 @@ function ConvertForm(props) {
                 value={props.foreignCurrency}
               >
                 {currencyAbb.map((code, index) => (
-                    <MenuItem key={`foreignCurrency ${index}`} value={code}>{code}</MenuItem>
+                    <MenuItem key={`foreignCurrency ${index}`} id={`foreignCurrency ${code}`} value={code}>{code}</MenuItem>
                 ))}
               </Select>
             </FormControl>
