@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Select, FormControl, Paper, MenuItem, InputLabel, TextField } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -15,6 +15,9 @@ const useStyles = makeStyles(theme => ({
       flexDirection: 'column',
       backgroundColor: "#eee",
   },
+  button: {
+    background: 'green'
+  },
   form: {
     width: '100%',
   },
@@ -26,6 +29,22 @@ const useStyles = makeStyles(theme => ({
       marginLeft: 20
   }
 }));
+
+const StyledButton = withStyles({
+  root: {
+    background: '#08402b',
+    borderRadius: 3,
+    border: 0,
+    fontSize: '18px',
+    color: 'white',
+    height: 48,
+    padding: '0 30px',
+    boxShadow: '0',
+  },
+  label: {
+    textTransform: 'capitalize',
+  },
+})(Button);
 
 function ConvertForm(props) {
   const classes = useStyles();
@@ -77,14 +96,13 @@ function ConvertForm(props) {
                 ))}
               </Select>
             </FormControl>
-            <Button 
+            <StyledButton 
               fullWidth 
               margin="normal"
               onClick={props.getRate} 
-              color="primary" 
               variant="contained">
               Convert
-            </Button>
+            </StyledButton>
           </form>
         </Paper>
       </div>
