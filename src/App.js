@@ -55,14 +55,9 @@ function App() {
     })  
       .then(res => res.json())
       .then(json => {
-        const rates = json.rates;
-        for (let i in rates)  {
-          if (i === foreignCurrency) { 
-            setConvertedAmount(Math.round((amount*rates[i]) * 100)/100)
-            setConversionDisplay(true);
-            setErrorDisplay(false);
-          }
-        }
+        setConvertedAmount(Math.round((amount*json.rates[foreignCurrency]) * 100)/100)
+        setConversionDisplay(true);
+        setErrorDisplay(false);
       })
       .catch(err => {
         console.log(err);
