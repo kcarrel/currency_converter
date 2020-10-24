@@ -55,7 +55,11 @@ function App() {
     })  
       .then(res => res.json())
       .then(json => {
-        setConvertedAmount(Math.round((amount*json.rates[foreignCurrency]) * 100)/100)
+        if (!json || !json.rates || !json.rates[foreignCurrency]) {
+          return;
+        }
+        const rate = json.rates[foreignCurrency]
+        setConvertedAmount(Math.round((amount*rate) * 100)/100)
         setConversionDisplay(true);
         setErrorDisplay(false);
       })
