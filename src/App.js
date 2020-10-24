@@ -4,7 +4,6 @@ import { withStyles, makeStyles} from '@material-ui/core/styles';
 import MuiAlert from '@material-ui/lab/Alert';
 import ConvertForm from './components/ConvertForm'
 import ConversionDisplay from './components/ConversionDisplay'
-import './App.css';
 
 
 function App() {
