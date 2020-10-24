@@ -1,28 +1,3 @@
-.App, body, html{
-  background-color: #395b4e;
-  height: 100vh;
-  background-repeat: no-repeat;
-  overflow: auto;
-}
 
-.alert {
-  position: fixed;
-  top: 95%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 
-}
-.currency_form {
-  position: fixed;
-  top: 60%;
-  left: 50%;
-  /* bring your own prefixes */
-  transform: translate(-50%, -50%);
-}
-.conversion_display {
-  position: fixed;
-  top: 20%;
-  left: 50%;
-  /* bring your own prefixes */
-  transform: translate(-50%, -50%);
-}
+

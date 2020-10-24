@@ -14,9 +14,15 @@ const useStyles = makeStyles(theme => ({
       justifyContent: 'center',
       flexDirection: 'column',
       backgroundColor: "#eee",
+      '& form': {
+        padding: 50,
+      },
   },
-  form: {
-    width: '100%',
+  currencyForm: {
+    position: 'fixed',
+    top: '60%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
   },
   textField: {
       backgroundColor: "#fff"
@@ -48,9 +54,9 @@ function ConvertForm(props) {
 
   return (
     <div className={classes.root}>
-      <div className="currency_form">
+      <div className={classes.currencyForm}>
         <Paper className={classes.paper} elevation={3}>
-          <form style={{padding: '50px'}}>
+          <form>
             <TextField
               margin="normal"
               name='amount'
@@ -60,7 +66,7 @@ function ConvertForm(props) {
               type="number"
               variant="outlined"
               id="amount-text-field"
-              onChange={e => props.setAmount(e.target.value)}
+              onChange={e => props.setAmountInput(e.target.value)}
               value={props.amount}
             />
             <FormControl required margin="normal" fullWidth>
@@ -74,7 +80,11 @@ function ConvertForm(props) {
                 value={props.nativeCurrency}
               >
                 {currencyAbb.map((code, index) => (
-                    <MenuItem key={`nativeCurrency ${index}`} id={`nativeCurrency ${code}`}value={code}>{code}</MenuItem>
+                    <MenuItem 
+                      key={`nativeCurrency ${index}`} 
+                      id={`nativeCurrency ${code}`}
+                      value={code}>{code}
+                    </MenuItem>
                 ))}
               </Select>
             </FormControl>
@@ -88,7 +98,11 @@ function ConvertForm(props) {
                 value={props.foreignCurrency}
               >
                 {currencyAbb.map((code, index) => (
-                    <MenuItem key={`foreignCurrency ${index}`} id={`foreignCurrency ${code}`} value={code}>{code}</MenuItem>
+                    <MenuItem 
+                      key={`foreignCurrency ${index}`} 
+                      id={`foreignCurrency ${code}`} 
+                      value={code}>{code}
+                    </MenuItem>
                 ))}
               </Select>
             </FormControl>

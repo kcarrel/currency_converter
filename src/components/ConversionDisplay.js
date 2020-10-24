@@ -9,21 +9,27 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
   },
   card: {
-      width: 500,
-      height: 100,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      flexDirection: 'column',
-      textAlign: 'center',
-      margin: 'auto',
-      backgroundColor: "#eee",
-  }
+    width: 500,
+    height: 100,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'column',
+    textAlign: 'center',
+    margin: 'auto',
+    backgroundColor: "#eee",
+  },
+  conversionDisplay: {
+    position: 'fixed',
+    top: '20%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+  },
 }));
 
 const StyledCard = withStyles({
   root: {
-    padding: '50px',
+    padding: 50,
     "&:last-child": {
         paddingTop: 50,
         paddingBottom: 50
@@ -36,11 +42,11 @@ function ConversionDisplay(props) {
     const classes = useStyles();
     return(
         <div className="classes.root">
-            <div className="conversion_display">
+            <div className={classes.conversionDisplay}>
                 {props.conversionDisplay ? (
                     <Card className={classes.card} elevation={3}> 
                         <StyledCard>
-                            {props.amount} {props.nativeCurrency} can be converted to {props.convertedAmount} {props.foreignCurrency}!
+                            {props.amount} {props.nativeCurrency} converts to {props.convertedAmount} {props.foreignCurrency}!
                         </StyledCard>
                     </Card>
                     ) : (
